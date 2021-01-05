@@ -12,7 +12,7 @@ exports.getPortfolioById = async (req, res) => {
     return res.json(portfolio);
   } catch (err) {
     console.log(err);
-    return res.status(400).json({ error: "Can't find portfolio" });
+    return res.status(400).json({ error: "Could not find portfolio." });
   }
 };
 
@@ -24,6 +24,34 @@ exports.createPortfolio = (req, res) => {
       return res.status(400).json({ error: err });
     } else {
       return res.json(result);
+    }
+  });
+};
+
+exports.updatePortfolio = async (req, res) => {
+  const data = req.body;
+  const { portfolioId } = req.params;
+  try {
+    const updatedPortfolio = await Portfolio.findOneAndUpdate(
+      { _id: portfolioId },
+      data,
+      { new: true }
+    );
+    return res.json(updatedPortfolio);
+  } catch (err) {
+    console.log(err);
+    return res.status(400).json({ error: "Could not update portfolio." });
+  }
+};
+
+exports.deletePortfolio = async (req, res) => {
+  const { portfolioId } = req.params;
+  await Portfolio.deleteOne({ _id: portfolioId }, (err) => {
+    if (err) {
+      console.log(err);
+      return res.status(400).json({ error: "Could not delete portfolio." });
+    } else {
+      return res.json({ message: "Portfolio has been deleted successfully." });
     }
   });
 };
