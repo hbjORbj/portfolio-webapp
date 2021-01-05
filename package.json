@@ -1,0 +1,20 @@
+{
+  "name": "portfolio-webapp",
+  "version": "1.0.0",
+  "description": "Portfolio WebApp built using React, GraphQL, Next, Node",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "Benny Joo",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "next": "^10.0.4",
+    "nodemon": "^2.0.6",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
