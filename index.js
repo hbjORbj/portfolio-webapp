@@ -4,10 +4,12 @@ const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const globalRouter = require("./routers/globalRouter");
+const portfolioRouter = require("./routers/portfolioRouter");
 const app = express();
 
 // Routes
 app.use("/api", globalRouter);
+app.use("/api", portfolioRouter);
 
 // DB
 mongoose
