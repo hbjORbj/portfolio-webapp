@@ -18,16 +18,16 @@ mongoose
     useCreateIndex: true,
   })
   .then(() => console.log("😃 DB Connected"));
-  
+
+mongoose.connection.on("error", (error) => {
+  console.log(`DB error: ${error}`);
+});
+
 // Middlewares
 app.use(morgan("dev"));
 
 // Server
 const PORT = process.env.PORT || 4000;
-
-app.get("/", (req, res) => {
-  res.send("HOME");
-});
 
 app.listen(PORT, (err) => {
   if (err) console.log(err);

@@ -1,8 +1,7 @@
-const { Router } = require("express");
 const express = require("express");
-const { getHome } = require("../controllers/globalController");
+const { getPortfolios } = require("../controllers/globalController");
 const globalRouter = express.Router();
 
-globalRouter.get("/", getHome);
+globalRouter.get("/", getPortfolios);
 
 module.exports = globalRouter;
