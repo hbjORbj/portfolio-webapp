@@ -10,11 +10,11 @@ const PortfolioSchema = new mongoose.Schema({
     required: true,
   },
   startDate: {
-    type: Date,
+    type: String, // need to change to Date
     required: true,
   },
   endDate: {
-    type: Date,
+    type: String, // need to change to Date
     required: true,
   },
   createdAt: {

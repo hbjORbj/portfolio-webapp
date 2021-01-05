@@ -7,10 +7,23 @@ exports.getPortfolios = async (req, res) => {
 
 exports.getPortfolioById = async (req, res) => {
   try {
-    const { id } = req.params;
-    const portfolio = await Portfolio.findById(id);
+    const { portfolioId } = req.params;
+    const portfolio = await Portfolio.findById(portfolioId);
     return res.json(portfolio);
-  } catch (error) {
+  } catch (err) {
+    console.log(err);
     return res.status(400).json({ error: "Can't find portfolio" });
   }
+};
+
+exports.createPortfolio = (req, res) => {
+  const data = req.body;
+  const portfolio = new Portfolio(data);
+  portfolio.save((err, result) => {
+    if (err) {
+      return res.status(400).json({ error: err });
+    } else {
+      return res.json(result);
+    }
+  });
 };

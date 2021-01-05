@@ -2,14 +2,11 @@ const dotenv = require("dotenv");
 dotenv.config();
 const express = require("express");
 const morgan = require("morgan");
+const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const globalRouter = require("./routers/globalRouter");
 const portfolioRouter = require("./routers/portfolioRouter");
 const app = express();
-
-// Routes
-app.use("/api", globalRouter);
-app.use("/api", portfolioRouter);
 
 // DB
 mongoose
@@ -27,6 +24,11 @@ mongoose.connection.on("error", (error) => {
 
 // Middlewares
 app.use(morgan("dev"));
+app.use(bodyParser.json());
+
+// Routes
+app.use("/api", globalRouter);
+app.use("/api", portfolioRouter);
 
 // Server
 const PORT = process.env.PORT || 4000;
