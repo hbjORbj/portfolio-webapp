@@ -1,3 +1,3 @@
-# Portfolio WebApp built using React, GraphQL, Next, Node
+# Portfolio WebApp Backend built using GraphQL, NextJS, NodeJS
 
 > Server-side rendered using NextJS
