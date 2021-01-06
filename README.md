@@ -1,3 +1,3 @@
-# Portfolio WebApp Backend built using GraphQL, NextJS, NodeJS
+# Portfolio WebApp Backend built using NodeJS
 
-> Server-side rendered using NextJS
+> Frontend can be found [here](https://github.com/hbjORbj/portfolio-webapp-frontend).

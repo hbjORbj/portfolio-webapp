@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const globalRouter = require("./routers/globalRouter");
 const portfolioRouter = require("./routers/portfolioRouter");
+const blogRouter = require("./routers/blogRouter");
 const app = express();
 
 // DB
@@ -29,6 +30,7 @@ app.use(bodyParser.json());
 // Routes
 app.use("/api", globalRouter);
 app.use("/api", portfolioRouter);
+app.use("/api", blogRouter);
 
 // Server
 const PORT = process.env.PORT || 4000;
